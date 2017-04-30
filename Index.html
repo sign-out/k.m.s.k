@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCD</title>
+    <script>
+        function onFailure(error) {
+            window.alert("Somthing went wrong. The Error says:" + error.message + " If the Error presists please contact The devloper.");
+        }
+
+        function sum(data) {
+            var sum = 0;
+            if (typeof data != "undefined") {
+                for (var i = 0; i < data.length; i++) {
+                    sum += parseInt(data[i]);
+                }
+                return sum;
+            } else {
+                return 0;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">   
+        <div class="module">
+            <script type="text/javascript" src="https://rawgit.com/ricmoo/aes-js/master/index.js"></script>
+            <script type="text/javascript" src="https://rawgit.com/Caligatio/jsSHA/v2.2.0/src/sha.js"></script>
+<script>
+/**************************************utilites*************************************************/
+ funtion cryptoran() 
+    {
+        var numarray = new Uint32Array(10);
+        window.crypto.getRandomValues(numarray);
+        var numsel = Math.random() * (numarray.length - 0) + 0;
+        console.log("Your lucky numbers:" + numarray[Math.round(numsel)] +" " + Math.round(numsel));
+        return numarray;
+    }
+
+
+</script>
+            <div class="modbody">
+                <style>
+                    #message_list {
+                        background-color: #fff;
+                        border-radius: 5px;
+                        margin-bottom: 5px;
+                        width: 520px;
+                    }
+                    
+                    .message_text_container {
+                        margin-bottom: 1px;
+                        margin-top: 1px;
+                    }
+                    
+                    .message_body_right {
+                        text-align: left;
+                    }
+                    
+                    .message_body_left {
+                        text-align: right;
+                    }
+                    
+                    #message_textcontrols {
+                        background-color: #fff;
+                        width: 440px;
+                        height: 40px;
+                        resize: none;
+                    }
+                    #message_chanui{
+                    margin-top:5px;
+                    }
+                    #message_chanlistcon{
+                    max-width:440px;
+                    max-height:300px;
+                    overflow:auto;
+                    background-color: #fff;
+                    }
+                    #message_chanlist{
+                    list-style:none;
+                    }
+                </style>
+                <div id="message_list">
+                <noscript>This app requires javascript</noscript>
+                    <table id="messagetable">
+                        <tr>
+                            <td class="message_body_right">
+                                <p class="message_text_container"><span class="message_text_username">[username123456789]</span><span>Message text</span><span class="message_timestamp" id="message_timestamp_time"></span></p>
+                            </td>
+                            <td class="message_body_middle">
+                                <span class="message_padding">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="message_body_middle">
+                                <span class="message_padding">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                            </td>
+                            <td class="message_body_left">
+                                <p class="message_text"><span class="message_text_username">[username123456789]</span>Message text <span class="message_timestamp" id="message_timestamp_time2"></span></p>
+                            </td>
+                        </tr>
+                    </table>
+                   
+                    <script>
+                        function Message_boot() {
+                            var server = {
+                            messagelist:[],
+                            lastrefresh: undefined,
+                            chanlist:[],
+                            userlist:[],                          
+                            }
+                            var user = Message_creatuser();
+                            var app = {
+                                this_user: user 
+                            }
+                            window.messager = app;
+                        }
+                        
+                        function Message_creatuser(){
+                            var ran = cryptoran();
+                            var user = {
+                                username: "user@name.com", //from google
+                                userid:ran,
+                                userchan:[""]
+
+                            }
+                            return user
+                        }
+                        
+                        Message_boot();
+                        function message_send() {
+                        
+                        }
+
+                        function message_refresh() {
+                        google.script.run.withSuccessHandler(band_loadcallback).withFailureHandler(onFailure).message_refresh(window.messager.user.userchan);
+                        }
+                        function message_refreshcallback(data) {
+                       
+                        }
+                 var rtr = new Date().toString();
+                        //alert(rtr);
+                        document.getElementById("message_timestamp_time").innerHTML = rtr;
+                        document.getElementById("message_timestamp_time2").innerHTML = rtr;
+                        //document.getElementsByClassName("message_timestamp").innerHTML = rtr;
+                        // message_timestamp_time
+                    </script>
+                </div>
+                <!--messagecontent-->
+                <div id="Message_controls">
+                    <textarea id="message_textcontrols"></textarea>
+                    <input type="button" value="Send" onclick="">
+                    <br>
+                    <input type="button" value="Chanles" onclick="">
+                    <div id ="message_chanui" >
+                        <input type="text" placeholder="Chanle Name"> Public <input type="checkbox" checked> <input type="button" value="Create"> 
+                        <input type="button" value="Delete"> <input type="button" value="Go to">
+                        <div id="message_chanlistcon">
+                        <ul id="message_chanlist">
+                        <li>### Chanel name   ###users</li>
+                        <li>### Chanel name   ###users</li>
+                        <li>### Chanel name   ###users</li>
+                        <li>### Chanel name   ###users</li>
+                        <li>### Chanel name   ###users</li>
+                        <li>### Chanel name   ###users</li>
+                        <li>### Chanel name   ###users</li>
+                        <li>### Chanel name   ###users</li>
+                        <li>### Chanel name   ###users</li>
+                        <li>### Chanel name   ###users</li>
+                        <li>### Chanel name   ###users</li>
+                        <li>### Chanel name   ###users</li>
+                        <li>### Chanel name   ###users</li>
+                        <li>### Chanel name   ###users</li>
+                        <li>### Chanel name   ###users</li>
+                        </ul>
+                        </div>
+                        <!--messagecahnlist-->
+                    </div>
+                    <!--messagechanui-->
+                </div>
+                <!--messagecontrols-->
+            </div>
+        </div>
+        <!--module-->
+    </div>
+    <!--container-->
+</body>
+
+</html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+/********************************************utils******************************************/
+    .module {
+        margin: 5px;
+        display: inline-block;
+        padding: 15px;
+        border-radius: 25px;
+        box-shadow: 1px 2px 2px #bbb;
+        background-color: #aaaaaa;
+    }
+    
+    input {
+        border-radius: 5px;
+    }  
+</style>
+
+<script>
+/*
+                        function aes() {
+                            //var key = aesjs.util.convertStringToBytes();
+                            // Convert text to bytes
+                            var text = 'Text may be any length you wish, no padding is required.';
+                            var textBytes = aesjs.util.convertStringToBytes(text);
+
+                            // The counter is optional, and if omitted will begin at 0
+                            var aesCtr = new aesjs.ModeOfOperation.ctr(window.messager.this_user.userkeyprivate, window.messager.this_user.userkeyprivate.usercounter);
+
+                            var encryptedBytes = aesCtr.encrypt(textBytes);
+
+                            // The counter mode of operation maintains internal state, so to
+                            // decrypt a new instance must be instantiated.
+                            var aesCtr = new aesjs.ModeOfOperation.ctr(key, new aesjs.Counter(5));
+                            var decryptedBytes = aesCtr.decrypt(encryptedBytes);
+
+                            // Convert our bytes back into text
+                            var decryptedText = aesjs.util.convertBytesToString(decryptedBytes);
+                            console.log(decryptedText);
+                            console.log(hash512("this is a test", "thisisasalt"));
+                            // "Text may be any length you wish, no padding is required."
+
+                        }
+
+                        function hash512(data, salt) {
+                            var shaObj = new jsSHA("SHA-512", "TEXT");
+                            shaObj.update(salt + data + salt);
+                            var hash = shaObj.getHash("B64");
+                            return hash;
+                        }
+                        function hash256(data, salt) {
+                            var shaObj = new jsSHA("SHA-256", "TEXT");
+                            shaObj.update(salt + data + salt);
+                            var hash = shaObj.getHash("B64");
+                            return hash;
+                        }
+                        */
+                        //aes();
+                        //cryptoran();
+       
+</script>
