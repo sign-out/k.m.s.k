@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+                <script>
+            /*
+            function band_load() {
+                    google.script.run.withSuccessHandler(band_loadcallback).withFailureHandler(onFailure).band_load();
+
+                }
+
+                function band_addrow() {
+                    var table = document.getElementById("bandintable");
+                    var row = table.insertRow(-1);
+                    row.className = "bandtablerow";
+                    row.innerHTML = "<td><input class='bandcont bandname'placeholder='Name'></td><td><input class='bandcont banduptime'placeholder='0w00d00h'></td><td><input class='bandcont bandin'placeholder='0.00'type='number'></td><td><input class='bandcont bandout'placeholder='0.00'type='number'></td>";
+                }
+
+                function band_loadcallback(data) {
+                    var html = "<tr class='bandtablerow'><td><p>Node ID</p></td><td><p>Up Time</p></td><td><p>In(GB)</p></td><td><p>Out(GB)</p></td></tr>";
+                    if (typeof data != "undefined") {
+                        for (var i = 0; i < data.length; i++) {
+                            html += "<tr class='bandtablerow'><td><input class='bandcont bandname'placeholder='Name' value=" + data[i].name + "></td><td><input class='bandcont banduptime'placeholder='0w00d00h'  value=" + data[i].uptime + "></td><td><input class='bandcont bandin'placeholder='0.00'type='number'  value=" + data[i].down + "></td><td><input class='bandcont bandout'placeholder='0.00'type='number'  value=" + data[i].up + "></td></tr>";
+                        }
+
+                    }
+                    document.getElementById("bandintable").innerHTML = html;
+                    band_sumdown();
+                    band_sumup();
+                    band_sumtotal();
+                    band_addrow();
+                }
+
+                function band_clear() {
+                    google.script.run.withFailureHandler(onFailure).band_clr();
+                    google.script.run.withSuccessHandler(band_loadcallback).withFailureHandler(onFailure).band_load();
+                }
+
+                function band_save() {
+                    var tname = document.getElementsByClassName("bandname");
+                    var tuptime = document.getElementsByClassName("banduptime");
+                    var tup = document.getElementsByClassName("bandout");
+                    var tdown = document.getElementsByClassName("bandin");
+                    var nodes = [];
+                    for (var i = 0; i < tname.length; i++) {
+                        if (tname[i].value != "") {
+                            var node = {
+                                name: tname[i].value,
+                                uptime: tuptime[i].value,
+                                up: tup[i].value,
+                                down: tdown[i].value
+                            };
+                            nodes.push(node);
+                        }
+                    }
+                    google.script.run.band_save(nodes);
+                    google.script.run.withSuccessHandler(band_loadcallback).withFailureHandler(onFailure).band_load();
+                }
+
+                function band_sumup() {
+                    var tup = document.getElementsByClassName("bandout");
+                    var data = [];
+                    for (var i = 0; i < tup.length; i++) {
+                        data.push(tup[i].value);
+                    }
+                    document.getElementById("bandouttotal").value = sum(data);
+                }
+
+                function band_sumdown() {
+                    var tdown = document.getElementsByClassName("bandin");
+                    var data = [];
+                    for (var i = 0; i < tdown.length; i++) {
+                        data.push(tdown[i].value);
+                    }
+                    document.getElementById("bandintotal").value = sum(data);
+                }
+
+                function band_sumtotal() {
+                    var data = [];
+                    var tup = document.getElementsByClassName("bandout");
+                    var tdown = document.getElementsByClassName("bandin");
+                    for (var i = 0; i < tup.length; i++) {
+                        data.push(tup[i].value);
+                        data.push(tdown[i].value);
+                    }
+                    document.getElementById("bandtotal").value = sum(data);
+                }
+            
+            */
+                function elect_load() {
+                /*
+                    google.script.run.withSuccessHandler(band_loadcallback).withFailureHandler(onFailure).elect_load();
+                */
+                }
+
+                function elect_addrow() {
+                    var table = document.getElementById("bandintable");
+                    var row = table.insertRow(-1);
+                    row.className = "bandtablerow";
+                    row.innerHTML = "<td><input class='bandcont bandname'placeholder='Name'></td><td><input class='bandcont banduptime'placeholder='0w00d00h'></td><td><input class='bandcont bandin'placeholder='0.00'type='number'></td><td><input class='bandcont bandout'placeholder='0.00'type='number'></td>";
+                
+                }
+
+                function elect_loadcallback(data) {
+                /*
+                                            <td class="electitle">
+                                Node ID
+                            </td>
+                            <td class="electitle">
+                                Node Uptime
+                            </td>
+                        </tr>
+                        <!--end of row-->
+                        <tr class="electtablerow">
+                            <td>
+                                <input id="electname" class="electcont" type="text" placeholder="Name"  value=''>
+                            </td>
+                            <td>
+                                <table class="electtables">
+                                    <tr class="electtablerow">
+                                        <td>
+                                            Weeks
+                                        </td>
+                                        <td>
+                                            Days
+                                        </td>
+                                        <td>
+                                            Hours
+                                        </td>
+                                    </tr>
+                                    <tr class="electtablerow">
+                                        <td>
+                                            <input id="" class="electcont" type="number" placeholder="000"  value=''>
+                                        </td>
+                                        <td>
+                                            <input id="" class="electcont" type="number" placeholder="000"  value=''>
+                                        </td>
+                                        <td>
+                                            <input id="" class="electcont" type="number" placeholder="000" value=''>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <!--end of row-->
+                
+                */
+
+                    var html = "<td class='electitle'>Node ID</td><td class='electitle'>Node Uptime</td>";
+                    if (typeof data != "undefined") {
+                        for (var i = 0; i < data.length; i++) {
+                            html += "<tr class='electtablerow'><td><input class='electcont'placeholder='Name'id='electname' value=""></td><td><table class='electtables'><tr class='electtablerow'><td>Weeks</td><td>Days</td><td>Hours</td></tr><tr class='electtablerow'><td><input class='electcont'placeholder='000'type='number'></td><td><input class='electcont'placeholder='000'type='number'></td><td><input class='electcont'placeholder='000'type='number'></td></tr></table></td></tr>";
+                            }
+                    }
+                    document.getElementById("electdatatable").innerHTML = html;
+                    //band_sumdown();
+                    //band_sumup();
+                    //band_sumtotal();
+                    //band_addrow();
+                    */
+                }
+
+                function elect_clear() {
+                    google.script.run.withFailureHandler(onFailure).elect_clr();
+                    google.script.run.withSuccessHandler(band_loadcallback).withFailureHandler(onFailure).elect_load();
+                }
+
+                function elect_save() {
+                
+                    var tname = document.getElementsByClassName("bandname");
+                    var tuptime = document.getElementsByClassName("banduptime");
+                    var tup = document.getElementsByClassName("bandout");
+                    var tdown = document.getElementsByClassName("bandin");
+                    var nodes = [];
+                    for (var i = 0; i < tname.length; i++) {
+                        if (tname[i].value != "") {
+                            var node = {
+                                name: tname[i].value,
+                                uptime: {
+                                    weeks:tname[i].value,
+                                    days:tname[i].value,
+                                    hours:tname[i].value
+                                },
+                                up: tup[i].value,
+                            };
+                            nodes.push(node);
+                        }
+                    }
+                    google.script.run.band_save(nodes);
+                    google.script.run.withSuccessHandler(band_loadcallback).withFailureHandler(onFailure).band_load();
+                
+                }
+
+                function elect_sum() {
+                    /*var tup = document.getElementsByClassName("bandout");
+                    var data = [];
+                    for (var i = 0; i < tup.length; i++) {
+                        data.push(tup[i].value);
+                    }
+                    document.getElementById("bandouttotal").value = sum(data);
+                    */
+                }
+</script>
+            <style>
+                .electtablerow td {
+                    padding: 0 5px;
+                    border-right: 2px black solid;
+                }
+                
+                .electtablerow td:last-child {
+                    border-right: none;
+                }
+                
+                .electcont {
+                    width: 40px;
+                }
+                
+                .electitle {
+                    text-align: center;
+                }
+                
+                #electcent {
+                    font-weight: bold;
+                }
+                
+                #electname {
+                    width: 100px;
+                }
+                
+                .electtables {
+                    display: inline-block;
+                }
+            </style>
+            <div class="modbody">
+                <div class="electcontent">
+                    <table id="electdatatable" class="electtables">
+                        <tr class="electtablerow">
+                            <td class="electitle">
+                                Node ID
+                            </td>
+                            <td class="electitle">
+                                Node Uptime
+                            </td>
+                        </tr>
+                        <!--end of row-->
+                        <tr class="electtablerow">
+                            <td>
+                                <input id="electname" class="electcont" type="text" placeholder="Name">
+                            </td>
+                            <td>
+                                <table class="electtables">
+                                    <tr class="electtablerow">
+                                        <td>
+                                            Weeks
+                                        </td>
+                                        <td>
+                                            Days
+                                        </td>
+                                        <td>
+                                            Hours
+                                        </td>
+                                    </tr>
+                                    <tr class="electtablerow">
+                                        <td>
+                                            <input id="" class="electcont" type="number" placeholder="000">
+                                        </td>
+                                        <td>
+                                            <input id="" class="electcont" type="number" placeholder="000">
+                                        </td>
+                                        <td>
+                                            <input id="" class="electcont" type="number" placeholder="000">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <!--end of row-->
+                    </table>
+                    <table class="electtables">
+                        <tr class="electtablerow">
+                            <td>
+                                Price(¢/kWh)
+                            </td>
+
+                            <td>
+                                Useage([W/h,wh])
+                            </td>
+                        </tr>
+                        <tr class="electtablerow">
+                            <td>
+                                <span id="electcent">¢</span>
+                                <input id="" class="electcont" type="number" placeholder="000">
+                            </td>
+
+                            <td>
+                                Weeks:
+                                <input id="" class="electcont" type="number" placeholder="000" >
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <!--elcect conetent-->
+                <div id="electcontrols">
+                    <input type="button" value="Add" onclick="">
+                    <input type="button" value="Save" onclick="">
+                    <input type="button" value="Clear" onclick="">
+                    <input type="button" value="Calculate" onclick="">
+                </div>
+                <!--elcetcontrols-->
+            </div>
+  </body>
+</html>
+
+
+
+   <div class="module">
+            <script>
+                function band_load() {
+                    google.script.run.withSuccessHandler(band_loadcallback).withFailureHandler(onFailure).band_load();
+
+                }
+
+                function band_addrow() {
+                    var table = document.getElementById("bandintable");
+                    var row = table.insertRow(-1);
+                    row.className = "bandtablerow";
+                    row.innerHTML = "<td><input class='bandcont bandname'placeholder='Name'></td><td><input class='bandcont banduptime'placeholder='0w00d00h'></td><td><input class='bandcont bandin'placeholder='0.00'type='number'></td><td><input class='bandcont bandout'placeholder='0.00'type='number'></td>";
+                }
+
+                function band_loadcallback(data) {
+                    var html = "<tr class='bandtablerow'><td><p>Node ID</p></td><td><p>Up Time</p></td><td><p>In(GB)</p></td><td><p>Out(GB)</p></td></tr>";
+                    if (typeof data != "undefined") {
+                        for (var i = 0; i < data.length; i++) {
+                            html += "<tr class='bandtablerow'><td><input class='bandcont bandname'placeholder='Name' value=" + data[i].name + "></td><td><input class='bandcont banduptime'placeholder='0w00d00h'  value=" + data[i].uptime + "></td><td><input class='bandcont bandin'placeholder='0.00'type='number'  value=" + data[i].down + "></td><td><input class='bandcont bandout'placeholder='0.00'type='number'  value=" + data[i].up + "></td></tr>";
+                        }
+
+                    }
+                    document.getElementById("bandintable").innerHTML = html;
+                    band_sumdown();
+                    band_sumup();
+                    band_sumtotal();
+                    band_addrow();
+                }
+
+                function band_clear() {
+                    google.script.run.withFailureHandler(onFailure).band_clr();
+                    google.script.run.withSuccessHandler(band_loadcallback).withFailureHandler(onFailure).band_load();
+                }
+
+                function band_save() {
+                    var tname = document.getElementsByClassName("bandname");
+                    var tuptime = document.getElementsByClassName("banduptime");
+                    var tup = document.getElementsByClassName("bandout");
+                    var tdown = document.getElementsByClassName("bandin");
+                    var nodes = [];
+                    for (var i = 0; i < tname.length; i++) {
+                        if (tname[i].value != "") {
+                            var node = {
+                                name: tname[i].value,
+                                uptime: tuptime[i].value,
+                                up: tup[i].value,
+                                down: tdown[i].value
+                            };
+                            nodes.push(node);
+                        }
+                    }
+                    google.script.run.band_save(nodes);
+                    google.script.run.withSuccessHandler(band_loadcallback).withFailureHandler(onFailure).band_load();
+                }
+
+                function band_sumup() {
+                    var tup = document.getElementsByClassName("bandout");
+                    var data = [];
+                    for (var i = 0; i < tup.length; i++) {
+                        data.push(tup[i].value);
+                    }
+                    document.getElementById("bandouttotal").value = sum(data);
+                }
+
+                function band_sumdown() {
+                    var tdown = document.getElementsByClassName("bandin");
+                    var data = [];
+                    for (var i = 0; i < tdown.length; i++) {
+                        data.push(tdown[i].value);
+                    }
+                    document.getElementById("bandintotal").value = sum(data);
+                }
+
+                function band_sumtotal() {
+                    var data = [];
+                    var tup = document.getElementsByClassName("bandout");
+                    var tdown = document.getElementsByClassName("bandin");
+                    for (var i = 0; i < tup.length; i++) {
+                        data.push(tup[i].value);
+                        data.push(tdown[i].value);
+                    }
+                    document.getElementById("bandtotal").value = sum(data);
+                }
+            </script>
+            <style>
+                #bandcontent {
+                    display: inline-block;
+                    width: auto;
+                }
+                
+                #bandcontent p {
+                    margin: 5px 2px;
+                }
+                
+                #bandcontent tr,
+                #bandcontent td {
+                    margin: 0;
+                    padding: 0;
+                }
+                
+                .bandcont {
+                    width: 50px;
+                }
+                
+                .bandtablerow td {
+                    padding: 0 5px;
+                    border-right: 2px black solid;
+                }
+                
+                .bandtablerow td:last-child {
+                    border-right: none;
+                }
+                
+                .bandtables {
+                    display: inline-block;
+                }
+                
+                .bandname {
+                    width: 100px;
+                }
+            </style>
+            <div class="modbody">
+                <div id="bandcontent">
+                    <table id="bandintable" class="bandtables">
+                        <tr class="bandtablerow">
+                            <td>
+                                <p> Node ID</p>
+                            </td>
+                            <td>
+                                <p>Up Time</p>
+                            </td>
+                            <td>
+                                <p>In(GB)</p>
+                            </td>
+                            <td>
+                                <p>Out(GB)</p>
+                            </td>
+                        </tr>
+                        <!--end of row-->
+                        <tr class='bandtablerow'>
+                            <td>
+                                <input class='bandcont bandname' placeholder='Name' value="Loading..." disabled>
+                            </td>
+                            <td>
+                                <input class='bandcont banduptime' placeholder='0w00d00h' value="Loading..." disabled>
+                            </td>
+                            <td>
+                                <input class='bandcont bandin' placeholder='0.00' type='text' value="Loading..." disabled>
+                            </td>
+                            <td>
+                                <input class='bandcont bandout' placeholder='0.00' type='text' value="Loading..." disabled>
+                            </td>
+                        </tr>
+                    </table>
+                    <table class="bandtables">
+                        <tr class="bandtablerow">
+                            <td>
+                                <p>Up(GB)</p>
+                            </td>
+                            <td>
+                                <p>Down(GB)</p>
+                            </td>
+                            <td>
+                                <p>Total(GB)</p>
+                            </td>
+                        </tr>
+                        <!--end of row-->
+                        <tr class="bandtablerow">
+                            <td>
+                                <input id="bandouttotal" class="bandouttotal bandcont" type="number" placeholder="0.00" disabled>
+                            </td>
+                            <td>
+                                <input id="bandintotal" class="bandintotal bandcont" type="number" placeholder="0.00" disabled>
+                            </td>
+                            <td>
+                                <input id="bandtotal" class="bandtotal bandcont" type="number" placeholder="0.00" disabled>
+                            </td>
+                        </tr>
+                        <!--end of row-->
+                    </table>
+                </div>
+                <!--bandcontent-->
+                <div id="bandcontrols">
+                    <input type="button" value="Add" onclick="band_addrow();">
+                    <input type="button" value="Save" onclick="band_save();">
+                    <input type="button" value="Clear" onclick="band_loadcallback()">
+                </div>
+                <!--bandcontrols-->
+            </div>
+            <!--modbody=-->
+            <script>
+                band_load();
+            </script>
+        </div>
+        <!--module-->
+
